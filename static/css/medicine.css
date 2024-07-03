@@ -1,0 +1,319 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Nav Bar */
+* {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav {
+  height: 60px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 50px 0px 100px;
+}
+nav .logo {
+  margin-left: -72px;
+  display: flex;
+  font-size: 26px;
+  color: white;
+}
+
+nav .logo h4 {
+  margin: 10px;
+  font-weight: 100;
+}
+nav .logo img {
+  height: 46px;
+  width: 48px;
+  margin-top: 5px;
+  filter: invert(100%);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 7px 7px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+nav ul li a:hover,
+nav ul li a.active {
+  background: white;
+  color: black;
+}
+nav ul li {
+  margin: 0 7px;
+}
+nav .menu-btn i {
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+#click:checked ~ .menu-btn i::before {
+  content: "\f00d";
+}
+#click {
+  display: none;
+}
+#click:checked ~ ul {
+  left: 0%;
+}
+@media (max-width: 940px) {
+  nav ul {
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    background-color: #111;
+    height: 100vh;
+    width: 100%;
+    display: block;
+    text-align: center;
+    transition: all 0.5s ease;
+    z-index: 1000;
+  }
+  nav ul li {
+    margin: 40px 0;
+  }
+  nav ul li a {
+    font-size: 20px;
+    display: block;
+  }
+  nav ul li a:hover,
+  nav ul li a.active {
+    background: none;
+    color: cyan;
+  }
+  nav .menu-btn i {
+    display: block;
+  }
+}
+/* Main section */
+
+.medicine-container {
+  display: flex;
+  flex-direction: column;
+}
+.medicine-container .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: url("/static/images/medicinebg.jfif");
+  filter: blur(0px);
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+}
+
+.medicine-container .main h1 {
+  font-size: 53px;
+  color: #34495e;
+  font-family: "Lato", sans-serif;
+}
+.medicine-h1 {
+  color: cadetblue;
+}
+.medicine-container .main h2 {
+  margin: 15px;
+  font-family: "Open Sans", sans-serif;
+  color: #7e5109;
+  font-size: 28px;
+}
+.medicine-container .main a {
+  width: 180px;
+  height: 60px;
+  background-color: #b03a2e;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding-top: 10px;
+  margin: 5px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: xx-large;
+  border-radius: 10px;
+  transition: all 0.3s ease-in;
+}
+.medicine-container .main a:hover {
+  background-color: white;
+  color: #b03a2e;
+}
+/* Cards */
+.cardcontainer {
+  display: flex;
+
+  padding: 30px;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8f8f5;
+}
+.cardcontainer .card {
+  width: 43%;
+  padding: 20px;
+  height: fit-content;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: white;
+  margin: 25px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+.cardcontainer .card .circle h1 {
+  text-align: center;
+  color: #922b21;
+  font-size: xx-large;
+}
+.cardcontainer .card .content {
+  margin: 5px;
+  font-size: large;
+  justify-content: center;
+  text-align: center;
+}
+.cardcontainer .card .content p {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  font-size: larger;
+  text-align: left;
+  margin: 10px;
+  letter-spacing: 0.1rem;
+}
+.cardcontainer .card .content button {
+  border: none;
+  background-color: #fdedec;
+  padding: 12px;
+  border-radius: 8px;
+
+  text-align: center;
+  justify-self: center;
+}
+.cardcontainer .card .content button:hover {
+  background-color: #f9e79f;
+  color: black;
+  transition: all 0.3s ease;
+}
+.cardcontainer .card .content a:hover {
+  background-color: #f9e79f;
+  color: black;
+  transition: all 0.3s ease;
+}
+.cardcontainer .card .content a {
+  text-decoration: none;
+  font-size: x-large;
+  color: black;
+}
+@media (max-width: 1025px) {
+  .cardcontainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .cardcontainer .card {
+    width: 100%;
+    margin: 10px;
+  }
+  .medicine-container .main h1 {
+    font-size: xx-large;
+    text-align: center;
+  }
+  .medicine-container .main h2 {
+    font-size: 25px;
+    text-align: center;
+  }
+  .medicine-container .main a {
+    width: 140px;
+    height: 50px;
+    font-size: x-large;
+  }
+  .cardcontainer .card .content p {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    font-size: large;
+    text-align: left;
+    margin: 10px;
+    letter-spacing: 0.1rem;
+  }
+}
+/* Footer */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container {
+  max-width: 1170px;
+  margin: auto;
+}
+.container .row .footer-col ul {
+  list-style: none;
+}
+footer {
+  background-color: #24262b;
+  padding: 50px;
+  font-family: "Poppins", sans-serif;
+}
+.footer-col {
+  width: 33.33%;
+  padding: 0 15px;
+}
+.footer-col h4 {
+  font-size: 18px;
+  color: white;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+  font-weight: 500;
+  position: relative;
+}
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 70px;
+}
+.footer-col ul li a {
+  font-size: 16px;
+  font-weight: 300;
+  color: #ffffff;
+  text-decoration: none;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 4px;
+}
+
+.footer-col p {
+  color: #bbbbbb;
+  align-self: auto;
+}
+@media (max-width: 767px) {
+  .footer-col {
+    width: 50%;
+  }
+}
+@media (max-width: 600px) {
+  .footer-col {
+    width: 100%;
+  }
+}

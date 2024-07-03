@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background: linear-gradient(147deg, #f9e79f 0%, #d8bfd8 74%);
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.main-heading {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 15px;
+  color: #d35400;
+}
+.nodata {
+  border-radius: 15px;
+  margin: 15px;
+}
+#center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.back-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+.back-button a img {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.blog-card {
+  width: 95%;
+  max-width: 850px;
+  margin: 15px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 10px 50px rgba(252, 56, 56, 0.3);
+}
+.blog-card .inner-part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25px;
+  height: 360px;
+}
+.inner-part .img {
+  height: 260px;
+  width: 260px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-radius: 20px;
+  box-shadow: 2px 3px 15px rgba(252, 56, 56, 0.3);
+}
+.img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+.content {
+  padding: 0 20px 0 30px;
+  /* width: 530px; */
+}
+.content span {
+  display: block;
+  color: #9594a5;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.content .title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0d0925;
+  margin-bottom: 10px;
+}
+.content .text {
+  font-size: 20px;
+  color: #bc8f8f;
+  line-height: 1.9rem;
+  font-weight: 300;
+  font-family: "Open Sans", sans-serif;
+}
+@media screen and (max-width: 900px) {
+  .inner-part .img {
+    height: 160px;
+    width: 150px;
+  }
+  .img {
+    display: none;
+  }
+  .content {
+    padding: 19px;
+    line-height: 1.3rem;
+  }
+  .content .title {
+    font-size: 25px;
+  }
+  .content span {
+    font-size: 17px;
+  }
+  .content .text {
+    font-size: 18px;
+  }
+}
