@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <link
+      rel="shortcut icon"
+      href="/static/images/favicon.png"
+      type="image/x-icon"
+    />
+    <meta charset="utf-8" />
+    <title>Buy Medicine</title>
+    <link rel="stylesheet" href="/static/css/buy.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <style>
+    a {
+      position: relative;
+      font-size: 22px;
+      font-weight: 100;
+      color: rgb(114, 28, 114);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="back-button">
+      <a href="/medicine">
+        <img src="/static/images/back.png" alt="" />
+      </a>
+    </div>
+    <div class="container">
+      <h1>Buy Medicine Supplies</h1>
+
+      <form action="#" method="POST">
+        <div class="form-row">
+          <div class="input-data">
+            <input type="text" name="buyer_name" required />
+            <div class="underline"></div>
+            <label for="buyer_name">Enter your name</label>
+          </div>
+        </div>
+        <div class="input1">
+          <label for="" class="labels">SELECT MEDICINE</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="Tocilizumab"
+            name="buyer_medicines"
+            value="Tocilizumab"
+          />
+          <label class="form-check-label" for="Tocilizumab">
+            Tocilizumab
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="FabiFlu"
+            name="buyer_medicines"
+            value="FabiFlu"
+          />
+          <label class="form-check-label" for="FabiFlu">FabiFlu </label>
+        </div>
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="Dexamethasone"
+            name="buyer_medicines"
+            value="Dexamethasone Tablet"
+          />
+          <label class="form-check-label" for="Dexamethasone"
+            >Dexamethasone Table</label
+          >
+        </div>
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="manga"
+            name="buyer_medicines"
+            value="Azithral Tablet"
+          />
+          <label class="form-check-label" for="Azithral">Azithral Tablet</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="Dolo"
+            name="buyer_medicines"
+            value="Dolo 650 MG"
+          />
+          <label class="form-check-label" for="Dolo">Dolo 650 MG</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="Calpol"
+            name="buyer_medicines"
+            value="Calpol"
+          />
+          <label class="form-check-label" for="Calpol">Calpol</label>
+        </div>
+        <br />
+
+        <div class="input3">
+          <label for="" class="labels"
+            >SELECT YOUR DISTRICT IN MAHARASHTRA</label
+          >
+        </div>
+        <br />
+        <div class="list1">
+          <label for="buyer_district"></label>
+          <select id="District" name="buyer_district" required>
+            <option value="">Choose District</option>
+            <option value="Ahmadnagar">Ahmadnagar</option>
+            <option value="Akola">Akola</option>
+            <option value="Amravati">Amravati</option>
+            <option value="Aurangabad">Aurangabad</option>
+            <option value="Bhandara">Bhandara</option>
+            <option value="Beed">Beed</option>
+            <option value="Buldhana">Buldhana</option>
+            <option value="Chandrapur">Chandrapur</option>
+            <option value="Dhule">Dhule</option>
+            <option value="GadChiroli">GadChiroli</option>
+            <option value="Gondiya">Gondiya</option>
+            <option value="Hingoli">Hingoli</option>
+            <option value="Jalgaon">Jalgaon</option>
+            <option value="Jalna">Jalna</option>
+            <option value="Kolhapur">Kolhapur</option>
+            <option value="Latur">Latur</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Mumbai Suburban">Mumbai Suburban</option>
+            <option value="Nagpur">Nagpur</option>
+            <option value="Nanded">Nanded</option>
+            <option value="Nandurbar">Nandurbar</option>
+            <option value="Nashik">Nashik</option>
+            <option value="Osmanabad">Osmanabad</option>
+            <option value="Parbhani">Parbhani</option>
+            <option value="Pune">Pune</option>
+            <option value="Raigad">Raigad</option>
+            <option value="Ratnagiri">Ratnagiri</option>
+            <option value="Sangli">Sangli</option>
+            <option value="Satara">Satara</option>
+            <option value="Sindhudurg">Sindhudurg</option>
+            <option value="Solapur">Solapur</option>
+            <option value="Thane">Thane</option>
+            <option value="Wardha">Wardha</option>
+            <option value="Washim">Washim</option>
+            <option value="Yavatmal">Yavatmal</option>
+          </select>
+        </div>
+
+        <div class="form-row submit-btn center-align">
+          <div class="input-data">
+            <div class="inner"></div>
+            <input type="submit" value="Submit" />
+          </div>
+          <div class="input-data">
+            <div class="inner"></div>
+            <input type="reset" value="Reset" />
+          </div>
+        </div>
+        <a href="/buy-immunity-booster"
+          >Click here to buy the Immunity Boosters >></a
+        >
+      </form>
+    </div>
+  </body>
+</html>

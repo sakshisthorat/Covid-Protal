@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medicine Sellers</title>
+    <link rel="stylesheet" href="/static/css/medicineseller.css" />
+    <link
+      rel="shortcut icon"
+      href="/static/images/favicon.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="back-button">
+      <a href="/buy">
+        <img src="/static/images/back.png" alt="" />
+      </a>
+    </div>
+    {% if flag == 0 %}
+    <div id="center">
+      <h1 class="main-heading">
+        No medicine sellers found in {{buyer_district}}
+      </h1>
+      <img class="nodata" src="/static/images/no-data.jpg" alt="" />
+    </div>
+    {% endif %} {% if flag == 1 %}
+
+    <h1 class="main-heading">Medicine Sellers in {{buyer_district}}</h1>
+    {% for doc in docs %} {% set a = doc.to_dict() %}
+
+    <br />
+    <div class="blog-card">
+      <div class="inner-part">
+        <label for="" class="img">
+          <img src="/static/images/sell.jpg" alt="" />
+        </label>
+        <div class="content">
+          <span>Seller Details</span>
+          <div class="title">Medicine Suppliers</div>
+          <div class="text">
+            <p>Name: {{a["name"]}}</p>
+            <p>Shop/ Company Name: {{a["company_name"]}}</p>
+            <p>Address: {{a["address"]}}</p>
+            <p>District: {{a["district"]}}</p>
+            <p>
+              Medicines : {% set med = a["medicines"] %} {% for m in med %}
+              {{m}}, {% endfor %}
+            </p>
+
+            <p>Mobile: {{a["mobile"]}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %} {% endif %}
+    <br />
+  </body>
+</html>
