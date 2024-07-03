@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaccination</title>
+  <link rel="stylesheet" href="/static/css/vaccine-page.css">
+
+  <link
+  rel="shortcut icon"
+  href="/static/images/favicon.png"
+  type="image/x-icon"
+/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <script src="https://kit.fontawesome.com/da8beb7649.js" crossorigin="anonymous"></script>
+
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger
+    intent="WELCOME"
+    chat-title="Covid-19 Chatbot"
+    agent-id="bf982501-c824-4d54-9831-8697e4b1c27a"
+    chat-icon="https://assets.dryicons.com/uploads/icon/svg/6143/29a2b7cf-9413-45a3-8caf-bb973ab19dbc.svg"
+    language-code="en"
+  >
+    <style>
+      df-messenger {
+        --df-messenger-bot-message: #d8d8da;
+        --df-messenger-button-titlebar-color: #8bcac2;
+        --df-messenger-chat-background-color: #fafafa;
+        --df-messenger-font-color: white;
+        --df-messenger-send-icon: #c2ebe8;
+        --df-messenger-user-message: #7fbbb3;
+        --df-messanger-send-icon: #558288;
+      }
+    </style>
+  </df-messenger>
+  <!-- Jquery CDN -->
+  <script>
+    //To minimise the height of chatbox
+    $(document).ready(function () {
+      window.addEventListener("dfMessengerLoaded", function (event) {
+        $r1 = document.querySelector("df-messenger");
+        $r2 = $r1.shadowRoot.querySelector("df-messenger-chat");
+        $r3 = $r2.shadowRoot.querySelector("df-messenger-user-input"); //for other mods
+        var sheet = new CSSStyleSheet();
+        // manage box height from here
+        sheet.replaceSync(
+          `div.chat-wrapper[opened="true"] { height: 450px }`
+        );
+        $r2.shadowRoot.adoptedStyleSheets = [sheet];
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <!---------NAVBAR------>
+
+  <nav>
+    <div class="logo">
+      <img src="/static/images/covidlogo.png" alt="" class="logoimg" />
+      <h4>Covid Portal</h4>
+    </div>
+    <input type="checkbox" name="" id="click" />
+    <label for="click" class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/news">News</a></li>
+      <li><a href="/vaccination" class="active">Vaccination</a></li>
+      <li><a href="/tracker">Track Covid-19</a></li>
+      <li><a href="/medicine">Medicine</a></li>
+    </ul>
+  </nav>
+
+  <!---------HOME PAGE------>
+
+  <div class="homepage" style="background-image: url('/static/images/main-img.jpeg')">
+
+    <h2>
+      "Vaccines are safe, effective and <span class="lifesaving">lifesaving</span>."
+    </h2>
+    <h3>-Vaccines save lives;fear endangers them</h3>
+  </div>
+
+
+  <!---------GUIDELINE CONTENT------>
+
+
+  <div class="guideline-content">
+    <div class="guideline-title">
+      <h3>VACCINATION GUIDELINES</h3>
+    </div>
+    <div class="blog-post">
+      <div class="blog-post__img">
+        <img src="/static/images/registration.jfif" alt="" />
+      </div>
+      <div class="blog-post__info">
+        <h1 class="blog-post__title">registration guideline
+          <svg class="registration-svg-img" enable-background="new 0 0 250 250" version="1.1" viewBox="0 0 250 250"
+            width="51.769" height="51.852" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m217.6 76.9v9.5c0 2-1.6 3.7-3.7 3.7s-3.7-1.6-3.7-3.7v-9.5c0-2 1.6-3.7 3.7-3.7s3.7 1.7 3.7 3.7zm0-44.1v23.8c0 2-1.6 3.7-3.7 3.7s-3.7-1.6-3.7-3.7v-23.8c0-3.8-3.1-6.8-6.8-6.8h-44.8v13.8h34.2c2 0 3.7 1.6 3.7 3.7v181.7c0 2-1.6 3.7-3.7 3.7h-135.5c-2 0-3.7-1.6-3.7-3.7v-181.7c0-2 1.6-3.7 3.7-3.7h34.2v-13.8h-44.9c-3.8 0-6.8 3.1-6.8 6.8v152.6c0 2-1.6 3.7-3.7 3.7s-3.7-1.6-3.7-3.7v-152.6c0-7.8 6.4-14.2 14.2-14.2h51.7v-14.9c0-2 1.6-3.7 3.7-3.7h45.9c2 0 3.7 1.6 3.7 3.7v14.9h51.7c7.9 0 14.3 6.4 14.3 14.2zm-111.9-14.2h38.5v-11.2h-38.5v11.2zm83.3 28.5h-30.6c-0.3 4.1-3.7 7.3-7.8 7.3h-51.2c-4.1 0-7.5-3.2-7.8-7.3h-30.6v174.3h128v-174.3zm-37.8-21.1h-52.4v20.6c0 0.3 0.2 0.5 0.5 0.5h51.3c0.3 0 0.5-0.2 0.5-0.5v-20.6zm62.7 76.1c-2 0-3.7 1.6-3.7 3.7v130c0 3.8-3.1 6.8-6.8 6.8h-156.8c-3.8 0-6.8-3.1-6.8-6.8v-30.7c0-2-1.6-3.7-3.7-3.7s-3.7 1.6-3.7 3.7v30.7c0 7.8 6.4 14.2 14.2 14.2h156.7c7.8 0 14.2-6.4 14.2-14.2v-130c0.1-2.1-1.6-3.7-3.6-3.7zm-112.3 1.1v-12.9c0-2 1.6-3.7 3.7-3.7h9.6v-9.6c0-2 1.6-3.7 3.7-3.7h12.9c2 0 3.7 1.6 3.7 3.7v9.6h9.6c2 0 3.7 1.6 3.7 3.7v12.9c0 2-1.6 3.7-3.7 3.7h-9.6v9.6c0 2-1.6 3.7-3.7 3.7h-12.9c-2 0-3.7-1.6-3.7-3.7v-9.6h-9.6c-2.1 0-3.7-1.7-3.7-3.7zm7.3-3.7h9.6c2 0 3.7 1.6 3.7 3.7v9.6h5.6v-9.6c0-2 1.6-3.7 3.7-3.7h9.6v-5.6h-9.6c-2 0-3.7-1.6-3.7-3.7v-9.6h-5.6v9.6c0 2-1.6 3.7-3.7 3.7h-9.6v5.6zm-25.3 33.9c-2 0-3.7 1.6-3.7 3.7 0 2 1.6 3.7 3.7 3.7h82.9c2 0 3.7-1.6 3.7-3.7 0-2-1.6-3.7-3.7-3.7h-82.9zm82.8 41.2h-82.8c-2 0-3.7 1.6-3.7 3.7 0 2 1.6 3.7 3.7 3.7h82.9c2 0 3.7-1.6 3.7-3.7-0.1-2.1-1.7-3.7-3.8-3.7zm0-20.6h-82.8c-2 0-3.7 1.6-3.7 3.7s1.6 3.7 3.7 3.7h82.9c2 0 3.7-1.6 3.7-3.7s-1.7-3.7-3.8-3.7zm-41.4 41.2h-41.4c-2 0-3.7 1.6-3.7 3.7 0 2 1.6 3.7 3.7 3.7h41.4c2 0 3.7-1.6 3.7-3.7 0-2-1.7-3.7-3.7-3.7z">
+            </path>
+          </svg>
+        </h1>
+        <p class="blog-post__text">
+        <ul class="guideline">
+          <li>
+            Register on the Co-WIN Portal and schedule your vaccination
+            appointment.
+            <a _ngcontent-djm-c69="300" routerlink="https://selfregistration.cowin.gov.in/" data-toggle="tooltip"
+              title="FAQs on CoWIN for Citizens" href="https://selfregistration.cowin.gov.in/">www.cowin.gov.in</a>
+          </li>
+          <br>
+          <li>
+            Once registered, notification and information about the vaccine
+            session date and time will be shared with the beneficiary.
+          </li>
+        </ul>
+        </p>
+      </div>
+    </div>
+    <div class="blog-post">
+      <div class="blog-post__img">
+        <img src="/static/images/vaccine.jpg" alt="" />
+      </div>
+      <div class="blog-post__info">
+        <h1 class="blog-post__title">about the vaccine
+          <svg class="vaccine-svg-img" id="about-the-vaccine" xmlns="http://www.w3.org/2000/svg" width="51.769"
+            height="51.852" viewBox="0 0 51.769 51.852">
+            <path id="Path_12" data-name="Path 12"
+              d="M43.962,32.166a2.6,2.6,0,0,0-2.485,1.843h-2.3a9.4,9.4,0,0,0-2.236-5.384l1.636-1.636a2.472,2.472,0,0,0,1.2.311,2.592,2.592,0,1,0-2.588-2.588,2.493,2.493,0,0,0,.311,1.222l-1.636,1.636a9.4,9.4,0,0,0-5.384-2.236v-2.3a2.629,2.629,0,0,0,1.843-2.485,2.588,2.588,0,1,0-3.334,2.485v2.278a9.574,9.574,0,0,0-5.384,2.236l-1.636-1.636a2.493,2.493,0,0,0,.311-1.222,2.6,2.6,0,1,0-5.2,0,2.6,2.6,0,0,0,.766,1.843,2.639,2.639,0,0,0,1.843.766,2.472,2.472,0,0,0,1.2-.311l1.636,1.636A9.377,9.377,0,0,0,21.2,30.634a.759.759,0,0,0,1.367.663,7.977,7.977,0,1,1,7.186,11.451A7.9,7.9,0,0,1,23.4,39.579a.768.768,0,0,0-1.222.932c.1.145.228.29.352.435l-1.636,1.636a2.6,2.6,0,1,0,.642,4.142h0A2.567,2.567,0,0,0,22.3,44.88a2.493,2.493,0,0,0-.311-1.222l1.615-1.615a9.491,9.491,0,0,0,5.384,2.236v2.3a2.629,2.629,0,0,0-1.843,2.485,2.588,2.588,0,1,0,3.334-2.485v-2.3a9.4,9.4,0,0,0,5.384-2.236L37.5,43.679a2.493,2.493,0,0,0-.311,1.222,2.6,2.6,0,0,0,.766,1.843h0a2.567,2.567,0,0,0,1.843.766,2.594,2.594,0,1,0-1.2-4.887l-1.636-1.636A9.4,9.4,0,0,0,39.2,35.6h2.3a2.629,2.629,0,0,0,2.485,1.843,2.589,2.589,0,0,0,2.588-2.588A2.631,2.631,0,0,0,43.962,32.166Zm-4.928-8.242a1.063,1.063,0,0,1,.766-.311,1.1,1.1,0,0,1,.766.311,1.069,1.069,0,1,1-1.512,1.512,1.063,1.063,0,0,1-.311-.766A.952.952,0,0,1,39.034,23.924Zm-9.318-4.473a1.077,1.077,0,1,1-1.077,1.077A1.069,1.069,0,0,1,29.715,19.452Zm-10.83,6.005a1.077,1.077,0,0,1,.766-1.843,1.1,1.1,0,0,1,.766.311,1.1,1.1,0,0,1,0,1.532A1.1,1.1,0,0,1,18.885,25.457ZM20.4,45.605h0a1.075,1.075,0,0,1-1.512,0,1.077,1.077,0,0,1,.766-1.843,1.1,1.1,0,0,1,.766.311,1.063,1.063,0,0,1,.311.766A1.177,1.177,0,0,1,20.4,45.605Zm9.318,4.473A1.077,1.077,0,1,1,30.792,49,1.069,1.069,0,0,1,29.715,50.078ZM39.8,43.762a1.1,1.1,0,0,1,.766.311,1.069,1.069,0,1,1-1.512,1.512h0a1.1,1.1,0,0,1,0-1.532A1.049,1.049,0,0,1,39.8,43.762Zm4.162-7.931a1.077,1.077,0,1,1,1.077-1.077A1.069,1.069,0,0,1,43.962,35.831Zm-26.009-.311h2.3a10.381,10.381,0,0,0,.207,1.367.772.772,0,0,0,.745.6.456.456,0,0,0,.166-.021.773.773,0,0,0,.58-.911,8.54,8.54,0,0,1-.207-1.781.764.764,0,0,0-.766-.766H17.953a2.629,2.629,0,0,0-2.485-1.843,2.588,2.588,0,1,0,0,5.177A2.56,2.56,0,0,0,17.953,35.521Zm-2.485.311a1.077,1.077,0,1,1,1.077-1.077A1.083,1.083,0,0,1,15.469,35.831ZM13.75,18.458l1.325,1.325a.75.75,0,0,0,1.077,0,.775.775,0,0,0,0-1.077l-1.325-1.325a6.872,6.872,0,0,0,1.47-3.52h1.864a.766.766,0,0,0,0-1.532H16.3a6.768,6.768,0,0,0-1.47-3.541l1.325-1.325a.761.761,0,1,0-1.077-1.077L13.75,7.71a6.872,6.872,0,0,0-3.52-1.47V4.376A.766.766,0,1,0,8.7,4.4V6.261a6.8,6.8,0,0,0-3.52,1.47L3.852,6.406A.761.761,0,0,0,2.775,7.483L4.1,8.808a6.867,6.867,0,0,0-1.47,3.541H.766a.766.766,0,1,0,0,1.532H2.63A6.8,6.8,0,0,0,4.1,17.4L2.775,18.727a.775.775,0,0,0,0,1.077.75.75,0,0,0,1.077,0l1.325-1.325a6.867,6.867,0,0,0,3.541,1.47v1.864a.764.764,0,0,0,.766.766.752.752,0,0,0,.766-.766V19.949A7.087,7.087,0,0,0,13.75,18.458ZM4.1,13.094a5.363,5.363,0,1,1,5.363,5.363A5.364,5.364,0,0,1,4.1,13.094Zm6.047-1.512a.932.932,0,1,1,.932-.932A.928.928,0,0,1,10.147,11.583Zm2.174,3.582a.932.932,0,1,1-.932-.932A.928.928,0,0,1,12.321,15.165Zm20,18.74a1.263,1.263,0,1,1,1.263,1.263A1.255,1.255,0,0,1,32.325,33.905Zm-6.481,3.375a1.263,1.263,0,1,1,1.263-1.263A1.268,1.268,0,0,1,25.843,37.281Zm2.526-5.425a.932.932,0,1,1,.932-.932A.928.928,0,0,1,28.369,31.855Zm4,6.751a.932.932,0,1,1-.932-.932A.928.928,0,0,1,32.366,38.606ZM7.724,13.467a.932.932,0,1,1-.932-.932A.928.928,0,0,1,7.724,13.467ZM51.769,9.3a.764.764,0,0,1-.766.766H49.139a6.8,6.8,0,0,1-1.47,3.52l1.325,1.325a.775.775,0,0,1,0,1.077.75.75,0,0,1-1.077,0l-1.325-1.325a6.867,6.867,0,0,1-3.541,1.47V18a.766.766,0,0,1-1.532,0V16.138a6.941,6.941,0,0,1-3.541-1.47l-1.325,1.325a.75.75,0,0,1-1.077,0,.775.775,0,0,1,0-1.077L36.9,13.591a6.867,6.867,0,0,1-1.47-3.541H33.567a.766.766,0,1,1,0-1.532h1.864A6.941,6.941,0,0,1,36.9,4.977L35.576,3.652a.761.761,0,0,1,1.077-1.077L37.978,3.9A6.872,6.872,0,0,1,41.5,2.43V.566a.766.766,0,1,1,1.532,0V2.43A6.912,6.912,0,0,1,46.571,3.9L47.9,2.575a.761.761,0,0,1,1.077,1.077L47.648,4.977c.083.1.145.186.228.29a.756.756,0,1,1-1.222.89,5.354,5.354,0,1,0,1.015,3.127.764.764,0,0,1,.766-.766h2.588A.793.793,0,0,1,51.769,9.3ZM40.545,8.394a.932.932,0,1,1,.932-.932A.928.928,0,0,1,40.545,8.394Zm4.307-.186a.932.932,0,1,1-.932.932A.941.941,0,0,1,44.853,8.207Zm-4.494,3.686a.932.932,0,1,1,.932.932A.928.928,0,0,1,40.359,11.893Z"
+              transform="translate(0 0.2)" fill="#021859"></path>
+          </svg>
+        </h1>
+        <p class="blog-post__text">
+        <ul class="guideline">
+          <li>
+            Vaccines are available from Government and Private Health
+            Facilities as notified, known as COVID Vaccination Centres
+            (CVCs)
+          </li>
+          <br>
+          <li>
+            The time interval between two doses of the Covishield/Covaxin vaccine
+            has been extended from four-six weeks to four-eight weeks.
+          </li>
+        </ul>
+        </p>
+      </div>
+    </div>
+    <div class="blog-post">
+      <div class="blog-post__img">
+        <img src="/static/images/pre-vaccination (2).jfif" alt="" />
+      </div>
+      <div class="blog-post__info">
+        <h1 class="blog-post__title">pre-vaccination guideline
+          <svg class="post-vaccine-svg-img" id="who-will-get-the-vaccine" xmlns="http://www.w3.org/2000/svg"
+            width="30.099" height="51.852" viewBox="0 0 30.099 51.852">
+            <path id="Path_10" data-name="Path 10"
+              d="M54.884,22.909V20.94a.767.767,0,1,1,1.534,0v1.97a.767.767,0,1,1-1.534,0ZM59.8,33.649h1.866a.767.767,0,0,0,0-1.534H59.8a.765.765,0,0,0-.767.767A.779.779,0,0,0,59.8,33.649Zm0-4.976h1.866a.767.767,0,0,0,0-1.534H59.8a.765.765,0,0,0-.767.767A.779.779,0,0,0,59.8,28.673Zm0-4.976h1.866a.767.767,0,0,0,0-1.534H59.8a.765.765,0,0,0-.767.767A.779.779,0,0,0,59.8,23.7Zm0-4.976h1.866a.767.767,0,0,0,0-1.534H59.8a.765.765,0,0,0-.767.767A.779.779,0,0,0,59.8,18.721Zm6.78-5.473V35.681a2.914,2.914,0,0,1-2.529,2.9l-.56,5.017a.765.765,0,0,1-.767.684H61.477v6.8a.765.765,0,0,1-.767.767.753.753,0,0,1-.767-.767v-6.8H58.7a.765.765,0,0,1-.767-.684l-.56-5.017a2.946,2.946,0,0,1-2.529-2.9V26.952a.767.767,0,1,1,1.534,0v8.728a1.411,1.411,0,0,0,1.41,1.41h5.805A1.411,1.411,0,0,0,65,35.681V13.746H56.419v3.006a.767.767,0,1,1-1.534,0v-3.5l-2.3-2.882a.761.761,0,0,1-.083-.809.752.752,0,0,1,.684-.435h4.872V4.312H56.045a.765.765,0,0,1-.767-.767v-1.7A1.849,1.849,0,0,1,57.124,0h7.194a1.849,1.849,0,0,1,1.845,1.845V3.525a.765.765,0,0,1-.767.767H63.385V9.122h4.872a.752.752,0,0,1,.684.435.807.807,0,0,1-.083.809Zm-4.52,29.5.456-4.126H58.969l.456,4.126ZM56.813,2.778h7.837V1.845a.327.327,0,0,0-.332-.332H57.144a.327.327,0,0,0-.332.332Zm2.778,6.344h2.281V4.312H59.591Zm-4.81,1.534,1.244,1.576h9.433L66.7,10.656ZM80.987,43.745V39.164a.549.549,0,0,0-.539-.539h-9.5a.549.549,0,0,0-.539.539V49.758a.549.549,0,0,0,.539.539h9.5a.549.549,0,0,0,.539-.539V47.83a.767.767,0,0,1,1.534,0v1.928a2.079,2.079,0,0,1-2.073,2.073h-9.5a2.079,2.079,0,0,1-2.073-2.073V39.164a2.041,2.041,0,0,1,1.97-2.053V32.882a.765.765,0,0,1,.767-.767h8.148a.765.765,0,0,1,.767.767v4.229a2.055,2.055,0,0,1,1.97,2.053v4.582a.757.757,0,1,1-1.513,0Zm-8.6-10.1V37.09h6.634V33.649ZM75.7,40.76a3.711,3.711,0,1,1-3.711,3.711A3.707,3.707,0,0,1,75.7,40.76Zm0,1.513a2.177,2.177,0,1,0,2.177,2.177A2.177,2.177,0,0,0,75.7,42.273Z"
+              transform="translate(-52.422)" fill="#021859"></path>
+          </svg>
+        </h1>
+        <p class="blog-post__text">
+        <ul class="guideline">
+          <li>
+            Donot take covid-vaccine if you had tested covid positive in the
+            last recent days. Take the consultation of the Doctor in order
+            to take the vaccines.
+          </li>
+          <br>
+          <li>
+            The health status before taking vaccine should be normal i.e.
+            One should not have cold, cough,etc.
+          </li>
+        </ul>
+        </p>
+      </div>
+    </div>
+    <div class="blog-post">
+      <div class="blog-post__img">
+        <img src="/static/images/post-vaccination.jfif" alt="" />
+      </div>
+      <div class="blog-post__info">
+        <h1 class="blog-post__title">post-vaccination guideline
+          <svg class="post-vaccine-svg-img" id="who-will-get-the-vaccine" xmlns="http://www.w3.org/2000/svg"
+            width="30.099" height="51.852" viewBox="0 0 30.099 51.852">
+            <path id="Path_10" data-name="Path 10"
+              d="M54.884,22.909V20.94a.767.767,0,1,1,1.534,0v1.97a.767.767,0,1,1-1.534,0ZM59.8,33.649h1.866a.767.767,0,0,0,0-1.534H59.8a.765.765,0,0,0-.767.767A.779.779,0,0,0,59.8,33.649Zm0-4.976h1.866a.767.767,0,0,0,0-1.534H59.8a.765.765,0,0,0-.767.767A.779.779,0,0,0,59.8,28.673Zm0-4.976h1.866a.767.767,0,0,0,0-1.534H59.8a.765.765,0,0,0-.767.767A.779.779,0,0,0,59.8,23.7Zm0-4.976h1.866a.767.767,0,0,0,0-1.534H59.8a.765.765,0,0,0-.767.767A.779.779,0,0,0,59.8,18.721Zm6.78-5.473V35.681a2.914,2.914,0,0,1-2.529,2.9l-.56,5.017a.765.765,0,0,1-.767.684H61.477v6.8a.765.765,0,0,1-.767.767.753.753,0,0,1-.767-.767v-6.8H58.7a.765.765,0,0,1-.767-.684l-.56-5.017a2.946,2.946,0,0,1-2.529-2.9V26.952a.767.767,0,1,1,1.534,0v8.728a1.411,1.411,0,0,0,1.41,1.41h5.805A1.411,1.411,0,0,0,65,35.681V13.746H56.419v3.006a.767.767,0,1,1-1.534,0v-3.5l-2.3-2.882a.761.761,0,0,1-.083-.809.752.752,0,0,1,.684-.435h4.872V4.312H56.045a.765.765,0,0,1-.767-.767v-1.7A1.849,1.849,0,0,1,57.124,0h7.194a1.849,1.849,0,0,1,1.845,1.845V3.525a.765.765,0,0,1-.767.767H63.385V9.122h4.872a.752.752,0,0,1,.684.435.807.807,0,0,1-.083.809Zm-4.52,29.5.456-4.126H58.969l.456,4.126ZM56.813,2.778h7.837V1.845a.327.327,0,0,0-.332-.332H57.144a.327.327,0,0,0-.332.332Zm2.778,6.344h2.281V4.312H59.591Zm-4.81,1.534,1.244,1.576h9.433L66.7,10.656ZM80.987,43.745V39.164a.549.549,0,0,0-.539-.539h-9.5a.549.549,0,0,0-.539.539V49.758a.549.549,0,0,0,.539.539h9.5a.549.549,0,0,0,.539-.539V47.83a.767.767,0,0,1,1.534,0v1.928a2.079,2.079,0,0,1-2.073,2.073h-9.5a2.079,2.079,0,0,1-2.073-2.073V39.164a2.041,2.041,0,0,1,1.97-2.053V32.882a.765.765,0,0,1,.767-.767h8.148a.765.765,0,0,1,.767.767v4.229a2.055,2.055,0,0,1,1.97,2.053v4.582a.757.757,0,1,1-1.513,0Zm-8.6-10.1V37.09h6.634V33.649ZM75.7,40.76a3.711,3.711,0,1,1-3.711,3.711A3.707,3.707,0,0,1,75.7,40.76Zm0,1.513a2.177,2.177,0,1,0,2.177,2.177A2.177,2.177,0,0,0,75.7,42.273Z"
+              transform="translate(-52.422)" fill="#021859"></path>
+          </svg>
+        </h1>
+        <p class="blog-post__text">
+        <ul class="guideline">
+          <li>
+            It is advisable to person with confirmed or suspected with
+            COVID-19 infection to receive complete schedule of COVID-19
+            vaccine irrespective of past history of infection with COVID-19.
+
+          </li>
+          <br>
+          <li>
+            It is absolutely necessary that everyone who has received the
+            COVID-19 vaccine should continue to follow the COVID-19
+            appropriate behaviour.
+          </li>
+        </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!---------PROCESS CONTENT------>
+
+  <div class="process-content">
+    <div class="process-title">
+      <h3>HOW IT WORKS</h3>
+    </div>
+    <div class="box-area">
+      <div class="single-box">
+        <div class="img-area"></div>
+        <div class="img-text">
+          <span class="header-text">REGISTER YOURSELF</span>
+          <p>
+            Register using your Mobile no. or Aadhaar no. or any other
+            Identity docs.
+          </p>
+        </div>
+      </div>
+      <div class="single-box">
+        <div class="img-area"></div>
+        <div class="img-text">
+          <span class="header-text">CHOOSE VACCINATION LOCATION</span>
+          <p>Select your nearby Vaccine Center for vaccination.</p>
+        </div>
+      </div>
+      <div class="single-box">
+        <div class="img-area"></div>
+        <div class="img-text">
+          <span class="header-text">CONFIRM YOUR SLOT</span>
+          <p>Book your slot according to your convenience to Get Vaccine.</p>
+        </div>
+      </div>
+      <div class="single-box">
+        <div class="img-area"></div>
+        <div class="img-text">
+          <span class="header-text">ANY QUESTION?</span>
+          <p>
+            In case of any query, Please follow our: <br />
+            <a _ngcontent-djm-c69="300" routerlink="/FAQ.html" data-toggle="tooltip" title="FAQs on CoWIN for Citizens"
+              href="/templates/FAQ.html">Frequently asked questions (FAQ)</a>
+          </p>
+        </div>
+      </div>
+      <div class="cm-link-box clearfix button">
+        <div class="manual-link button-class">
+          <a href="https://prod-cdn.preprod.co-vin.in/assets/pdf/User_Guide_Citizen%20registration_18+.pdf"
+            class="user-manual-link" ; style="text-decoration: none">
+            <button type="button" class="btn btn-outline-light btn-1">
+              Know how to book your appointment
+            </button>
+          </a>
+        </div>
+        <div class="manual-link cm-dos-link button-class">
+          <a href="https://prod-cdn.preprod.co-vin.in/assets/pdf/Dos_and_Donts_for_Citizens.pdf"
+            class="user-manual-link" ; style="text-decoration: none" ;>
+            <button type="button" class="btn btn-outline-light btn-2">
+              Do's and Don'ts
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!---------VIDEO CONTENT------>
+
+  <div class="video-content">
+    <div class="video-heading">
+      <h3>VIDEO GALLERY</h3>
+      <a class="button view-button" href="/templates/videos.html" role="button">View All</a>
+    </div>
+    <div class="wrapper">
+      <div class="carousel owl-carousel">
+        <div class="card card-1">
+          <div class="card-header">
+            <video class="video" width="100%" controls>
+              <source src="/static/videos/video1.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="card-body">
+            <p class="card-text video-text">
+              How vaccine work againsts COVID-19 Science,Simplified
+            </p>
+          </div>
+        </div>
+        <div class="card card-2">
+          <div class="card-header">
+            <video class="video" width="100%" controls>
+              <source src="/static/videos/video2.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="card-body">
+            <p class="card-text video-text">
+              #CoWIN Registration with Agrogya Setu App.
+            </p>
+          </div>
+        </div>
+        <div class="card card-3">
+          <div class="card-header">
+            <video class="video" width="100%" controls>
+              <source src="/static/videos/video3.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="card-body">
+            <p class="card-text video-text">
+              Understanding COVID-19 and How to Stay Safe.
+            </p>
+          </div>
+        </div>
+        <div class="card card-4">
+          <div class="card-header">
+            <video class="video" width="100%" controls>
+              <source src="/static/videos/video4.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="card-body">
+            <p class="card-text video-text">
+              Short film on Precautions during covid-19
+            </p>
+          </div>
+        </div>
+        <div class="card card-5">
+          <div class="card-header">
+            <video class="video" width="100%" controls>
+              <source src="/static/videos/video5.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="card-body">
+            <p class="card-text video-text">
+               protective tips for Staying Safe in the Era of Covid-19.
+            </p>
+          </div>
+        </div>
+        <div class="card card-6">
+          <div class="card-header">
+            <video class="video" width="100%" controls>
+              <source src="/static/videos/video6.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="card-body">
+            <p class="card-text video-text">
+              Watch "SAFE STEPS OF THE PANDEMIC COVID-19".
+            </p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!---------FOOTER------>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <p>
+            Covid Portal is a website that serves the purpose of informing the
+            users about the latest details of covid-19, chatbot service
+            developed for your questions on the virus, live covid trackers,
+            vaccination details, and many more.
+          </p>
+          <p>
+            Our main purpose is to help people know about the latest news and
+            guidelines about the virus and providing verified information,
+            guidelines and resources so that people can stay safe.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/vaccinatiom">Vaccination</a></li>
+            <li><a href="/tracker">Track Covid-19</a></li>
+            <li><a href="/medicine">Medicine</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>
+              <a href="#"><i class="far fa-envelope"></i> covidportal2021@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    $(".carousel").owlCarousel({
+      margin: 10,
+      loop: false,
+      autoplay: false,
+      nav:false,
+      autoplayTimeout: 9000,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1,
+          nav: false,
+        },
+        600: {
+          items: 2,
+          nav: false,
+        },
+        1000: {
+          items: 3,
+          nav: false,
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>
